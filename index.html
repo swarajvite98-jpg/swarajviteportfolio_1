@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swaraj Santosh Vite | Portfolio</title>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #f97316;
+      --accent: #14b8a6;
+      --bg: #0f172a;
+      --card: #111827;
+      --card2: #0b1220;
+      --text: #e5e7eb;
+      --muted: #cbd5e1;
+      --border: #334155;
+      --highlight: linear-gradient(135deg, #2563eb, #14b8a6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      background: rgba(2, 6, 23, 0.96);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #f1f5f9;
+      font-size: 15px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background: var(--secondary);
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: 38px auto 24px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .profile-card {
+      background: linear-gradient(180deg, #1d4ed8, #0f172a);
+      border: 1px solid #3b82f6;
+      border-radius: 22px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .profile-card img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 4px solid white;
+      background: #d1d5db;
+    }
+
+    .profile-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 14px;
+    }
+
+    .profile-role {
+      font-size: 14px;
+      color: #dbeafe;
+      margin-top: 5px;
+    }
+
+    .hero-main {
+      background: linear-gradient(135deg, rgba(37,99,235,0.18), rgba(20,184,166,0.12));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 32px;
+    }
+
+    .hero-main h1 {
+      font-size: 40px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .hero-main h1 span {
+      color: var(--secondary);
+    }
+
+    .hero-main p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .hero-highlight {
+      margin-top: 14px;
+      padding: 16px;
+      background: rgba(255,255,255,0.06);
+      border-left: 4px solid var(--secondary);
+      border-radius: 12px;
+      color: #e2e8f0;
+      font-size: 15px;
+    }
+
+    .btns {
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #ea580c;
+    }
+
+    .btn-outline {
+      border: 1px solid #94a3b8;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .page {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 20px 30px;
+    }
+
+    section {
+      background: #111827;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    }
+
+    h2 {
+      color: var(--secondary);
+      margin-bottom: 14px;
+      font-size: 26px;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, #0b1220, #111827);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .card h3 {
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .card p {
+      margin-bottom: 10px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border: 1px solid #475569;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: white;
+    }
+
+    .cert-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .cert-links a {
+      text-decoration: none;
+      background: var(--highlight);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .cert-links a:hover {
+      opacity: 0.92;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .contact-list li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 18px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        justify-self: center;
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .hero-main h1 {
+        font-size: 30px;
+      }
+
+      nav ul {
+        gap: 16px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">SWARAJ <span>VITE</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#internship">Internship</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="profile-card">
+      <img src="IMAGE.jpeg" alt="Swaraj Santosh Vite">
+      <div class="profile-name">Swaraj Santosh Vite</div>
+      <div class="profile-role">B.Tech Chemical Engineering Student</div>
+      <div class="profile-role">MIT Academy of Engineering, Pune</div>
+    </div>
+
+    <div class="hero-main">
+      <h1>Hello, <span>this is Swaraj</span></h1>
+      <p>
+        I am a B.Tech Chemical Engineering student with a strong interest in process engineering,
+        sustainability, industrial systems, and simulation-based problem solving.
+      </p>
+      <p>
+        Through academic learning, project work, workshops, and industrial internship exposure,
+        I have developed practical understanding of modelling and simulation, heat transfer,
+        fluid systems, wastewater-related sustainability concepts, and process optimization.
+      </p>
+      <p>
+        I am particularly interested in using engineering tools and analytical thinking to build
+        solutions that improve efficiency, reduce waste, and support practical industrial applications.
+      </p>
+
+      <div class="hero-highlight">
+        My goal is to grow as an engineer who can combine technical knowledge, software tools,
+        and practical understanding to solve real-world chemical and process engineering challenges.
+      </div>
+
+      <div class="btns">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am Swaraj Santosh Vite, currently pursuing B.Tech in Chemical Engineering at MIT Academy
+        of Engineering, Pune. My academic background has given me exposure to important areas such as
+        modelling and simulation, heat transfer, process systems, sustainability, and industrial analysis.
+      </p>
+      <p>
+        I enjoy understanding how engineering concepts can be applied to solve practical problems in
+        industries and society. I am especially interested in process improvement, efficient resource use,
+        and tools that support analysis and optimization in engineering applications.
+      </p>
+      <p>
+        Along with academics, I have participated in workshops and project work that helped me improve
+        my knowledge of engineering software tools and practical industrial concepts. I believe in learning
+        continuously through projects, training, and real-world exposure.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>B.Tech in Chemical Engineering</h3>
+          <p>MIT Academy of Engineering, Pune</p>
+          <p>2021 - 2026</p>
+          <p>CGPA: 6.95 / 10</p>
+        </div>
+
+        <div class="card">
+          <h3>12th Standard</h3>
+          <p>Guruvarya R.P. Sabnis Vidyamandir, Narayangaon, Junnar</p>
+          <p>MSBSHSE Board</p>
+          <p>2021</p>
+          <p>Percentage: 72.33%</p>
+        </div>
+
+        <div class="card">
+          <h3>10th Standard</h3>
+          <p>Bloomingdale International School, Narayangaon, Junnar</p>
+          <p>CISCE Board</p>
+          <p>2019</p>
+          <p>Percentage: 78%</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="internship">
+      <h2>Internship Experience</h2>
+      <div class="card">
+        <h3>Katraj Dairy - Intern</h3>
+        <p>01 July 2025 - 31 July 2025</p>
+        <p>
+          Completed a one-month summer internship at Katraj Dairy, where I gained exposure to
+          important dairy processing operations and industrial plant activities.
+        </p>
+        <p>
+          During the internship, I observed processes such as pasteurization, homogenization,
+          chilling, clarification, cream separation, and quality testing of milk. I also gained
+          understanding of steam generation through boiler systems, food safety standards, and
+          quality control procedures used in dairy industries.
+        </p>
+        <p>
+          This internship helped me understand how industrial processing systems operate in practice
+          and how different stages of production contribute to product quality, safety, and shelf life.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Smart Water Distribution and Networking in Apartment</h3>
+          <p>
+            This project focuses on one of the important urban sustainability challenges: efficient
+            and fair distribution of water in apartment societies and residential complexes.
+          </p>
+          <p>
+            The proposed system is designed to ensure more equitable water distribution across all
+            apartments using smart sensors, real-time monitoring, and automated control methods.
+            The system aims to detect leakages, monitor water usage, and regulate pressure to reduce
+            wastage while maintaining better distribution efficiency.
+          </p>
+          <p>
+            The project also introduces the concept of Internet of Things-based monitoring in water
+            distribution networks, which can improve control, support dynamic response to changing
+            water demand, and promote sustainable water management in society-level infrastructure.
+          </p>
+          <p>
+            This project reflects my interest in combining engineering concepts with smart monitoring
+            systems to improve resource management and sustainability.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>CFD Simulation of Double Pipe Heat Exchanger</h3>
+          <p>
+            This project involved the simulation and analysis of heat transfer mechanisms in a
+            double pipe heat exchanger using ANSYS Fluent 16.2.
+          </p>
+          <p>
+            Heat exchangers are widely used in industries to transfer thermal energy efficiently,
+            and simulation helps in understanding how flow behavior and heat transfer interact
+            inside such systems. In this project, I studied how computational fluid dynamics can
+            be used to model the exchanger and analyze thermal performance.
+          </p>
+          <p>
+            The project strengthened my understanding of heat transfer concepts, fluid flow behavior,
+            thermal energy recovery, and the practical importance of simulation tools in engineering design.
+          </p>
+          <p>
+            It also improved my knowledge of ANSYS Fluent and showed how software-based analysis can
+            support industrial process optimization.
+          </p>
+        </div>
+         <div class="card">
+          <h3>Cellulose Extraction From Waste Banana Stem.</h3>
+          <p>
+            Extracted cellulose from banana stem waste using chemical treatment methods. Gained hands-on experience in biomass processing, purification, and material characterization techniques for sustainable applications.
+          </p>
+          <p>
+           Worked on extracting cellulose from banana stem waste as part of a sustainable chemical engineering project. Applied pre-treatment, alkali treatment, bleaching, and purification processes to isolate cellulose. Conducted analysis using characterization techniques to evaluate purity and structural properties. Focused on waste valorization and eco-friendly material development aligned with circular economy principles.
+          </p>
+          <p>
+            The project strengthened my understanding of heat transfer concepts, fluid flow behavior,
+            thermal energy recovery, and the practical importance of simulation tools in engineering design.
+          </p>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>
+        Technical and analytical skills developed through academics, projects, workshops, and industrial exposure.
+      </p>
+
+      <div class="skills">
+        <span class="chip">CFD Simulation</span>
+        <span class="chip">Heat Transfer Analysis</span>
+        <span class="chip">ANSYS Fluent</span>
+        <span class="chip">AutoCAD</span>
+        <span class="chip">Aspen HYSYS</span>
+        <span class="chip">Aspen Plus</span>
+        <span class="chip">Modelling and Simulation</span>
+        <span class="chip">Sensor Technology</span>
+        <span class="chip">Wastewater Management Concepts</span>
+        <span class="chip">Process Analysis</span>
+        <span class="chip">Energy Optimization Basics</span>
+        <span class="chip">Problem Solving</span>
+        <span class="chip">Analytical Thinking</span>
+        <span class="chip">Teamwork</span>
+        <span class="chip">Chemical Processing Skills</span>
+        <span class="chip">Laboratory Skills</span>
+        <span class="chip">Analytical and characterization Skills</span>
+        <span class="chip">Biomass Processing</span>
+      </div>
+    </section>
+
+    <section id="workshops">
+      <h2>Workshops and Training</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Unlocking the Power of Aspen HYSYS to Optimize & Innovate: Sustainability Model</h3>
+          <p>
+            Gained hands-on exposure to process simulation, optimization, and sustainability modelling
+            using Aspen HYSYS. Learned how software tools can support energy-efficient and environmentally
+            sustainable chemical process analysis.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Aspen HYSYS Refresher Course</h3>
+          <p>
+            Improved understanding of Aspen HYSYS simulation through refresher learning focused on
+            fluid packages, heat exchangers, and distillation column modelling concepts.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Achieve Sustainability Goals with Aspen Plus Solution</h3>
+          <p>
+            Learned about process modelling for sustainability improvement, including reduction of
+            energy consumption, minimization of waste, emission reduction, and broader energy analysis concepts.
+          </p>
+        </div>
+        <div class="card">
+          <h3> Process Safety: HAZOP Studies</h3>
+          <p>
+            Attended workshop on HAZOP studies; learned hazard identification, deviation analysis, and risk mitigation in process systems.
+          </p>
+        
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>Assessment and Certification</h2>
+      <div class="card">
+        <h3>SWAYAM - NPTEL: Membrane Technology</h3>
+        <p>Aggregate Score: 51 / 100</p>
+        <p>
+          This course provided understanding of membrane-based separation processes and their industrial applications.
+          It covered membrane materials, preparation methods, and process types such as reverse osmosis,
+          microfiltration, ultrafiltration, and pervaporation.
+        </p>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <h2>Certificates</h2>
+      <p>
+        All certificate files are linked below.
+      </p>
+
+      <div class="cert-links">
+        <a href="./C1.pdf" target="_blank">Certificate 1</a>
+        <a href="./C2.pdf" target="_blank">Certificate 2</a>
+        <a href="./C3.pdf" target="_blank">Certificate 3</a>
+        <a href="./CLAUDE4.pdf" target="_blank">Certificate 4</a>
+        <a href="./INTERN.pdf" target="_blank">Internship Certificate</a>
+         <a href="D:\MITAOE Record\Swaraj Vite HAZOP chemklub webinar participation certificate.pdf" target="_blank">CHEMCLUB Workshop Certificate</a>
+         <a href="C:\Users\swara\Downloads\Membrane Technology.pdf" target="_blank">Membrane Technology</a>
+      </div>
+    </section>
+
+    <section id="interests">
+      <h2>Personal Interests</h2>
+      <div class="skills">
+        <span class="chip">Cycling</span>
+        <span class="chip">Travelling</span>
+        <span class="chip">Basketball</span>
+        <span class="chip">Football</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><b>Name:</b> Swaraj Santosh Vite</li>
+        <li><b>Email:</b> swaraj.vite@mitaoe.ac.in</li>
+        <li><b>Alternate Email:</b> swarajvite98@gmail.com</li>
+        <li><b>Phone:</b> +91-9987704240</li>
+        <li><b>Alternate Phone:</b> +91-8856839709</li>
+        <li><b>Location:</b> Junnar, Maharashtra, India</li>
+        <li><b>Languages:</b> English, Hindi, Marathi</li>
+        <li><b>Resume:</b><section id="resume">
+    <a href="./Swaraj Vite-Resume.pdf" target="_blank">
+      View Resume
+    </a>
+  
+
+</section></li>
+        <li><b>Connect To LinkedIn:</b><a href="https://www.linkedin.com/in/swaraj-vite-2b1a533aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="btn btn-outline">
+  <i class="fab fa-linkedin"></i> LinkedIn
+</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Swaraj Santosh Vite | Chemical Engineering Portfolio
+  </footer>
+
+</body>
+</html>
